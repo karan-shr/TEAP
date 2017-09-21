@@ -40,8 +40,8 @@ SizeWindow = round(fs/50);
 data = data - mean(data);
 
 %Filter the data
-dataS = filtfilt(ones(1, SizeWindow)/SizeWindow, 1,
-                 [repmat(data(1), SizeWindow, 1); data]);
+
+dataS = filtfilt( ones(1, SizeWindow)/SizeWindow, 1, [repmat(data(1), SizeWindow, 1); data]);
 dataS = dataS(SizeWindow+1:end);
 
 diffS = diff(dataS);
@@ -64,7 +64,7 @@ listePic = round(listePic);
 %Procedure to keep only peaks that are separated by at least 0.5 seconds
 %other are considered as the same peak and one of the two is selected
 %according to the chosen method. Also peaks that lie alone in the
-%first 0.5 seconds are removed (cannot determine which peak it is…)
+%first 0.5 seconds are removed (cannot determine which peak it is???)
 limit = round(0.5*fs);
 
 %Remove too early first peakS
